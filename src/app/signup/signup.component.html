@@ -1,1 +1,92 @@
-<p>signup works!</p>
+<form #myForm="ngForm" (ngSubmit)="onSubmit()">
+  <fieldset>
+    <label for="user-firstname">Firstname</label>
+    <input
+      id="user-firstname"
+      name="user-firstname"
+      type="text"
+      [(ngModel)]="model.firstname"
+      #firstname="ngModel"
+      required
+      minlength="3"
+      maxlength="15"
+    />
+  </fieldset>
+  <div *ngIf="myForm.submitted && firstname.errors">
+    <span *ngIf="firstname.errors?.['required']">Le firstname est requis</span>
+    <span *ngIf="firstname.errors?.['minlength']"
+      >Le firstname doit comporter au moins 3 caractères.</span
+    >
+    <span *ngIf="firstname.errors?.['maxlength']"
+      >Le firstname ne doit pas dépasser 15 caractères.</span
+    >
+  </div>
+
+  <fieldset>
+    <label for="user-lastname">Lastname</label>
+    <input
+      id="user-lastname"
+      name="user-lastname"
+      type="text"
+      [(ngModel)]="model.lastname"
+      #lastname="ngModel"
+      required
+      minlength="3"
+      maxlength="15"
+    />
+  </fieldset>
+  <div *ngIf="myForm.submitted && lastname.errors">
+    <span *ngIf="lastname.errors?.['required']">Le lastname est requis</span>
+    <span *ngIf="lastname.errors?.['minlength']"
+      >Le lastname doit comporter au moins 3 caractères.</span
+    >
+    <span *ngIf="lastname.errors?.['maxlength']"
+      >Le lastname ne doit pas dépasser 15 caractères.</span
+    >
+  </div>
+
+  <fieldset>
+    <label for="user-email">Email</label>
+    <input
+      id="user-email"
+      name="user-email"
+      type="text"
+      [(ngModel)]="model.email"
+      #email="ngModel"
+      required
+      email
+    />
+  </fieldset>
+  <div *ngIf="myForm.submitted && email.errors">
+    <span *ngIf="email.errors?.['required']">L'email est requis</span>
+    <span *ngIf="email.errors?.['email']">L'email est invalide</span>
+  </div>
+
+  <fieldset>
+    <label for="user-password">Mot de Passe</label>
+    <input
+      id="user-password"
+      name="user-password"
+      type="text"
+      [(ngModel)]="model.password"
+      #password="ngModel"
+      required
+      minlength="8"
+      maxlength="15"
+    />
+  </fieldset>
+
+  <div *ngIf="myForm.submitted && password.errors">
+    <span *ngIf="password.errors?.['required']"
+      >Le Mot de Passe est requis</span
+    >
+    <span *ngIf="password.errors?.['minlength']"
+      >Le password doit comporter au moins 8 caractères.</span
+    >
+    <span *ngIf="password.errors?.['maxlength']"
+      >Le password ne doit pas dépasser 15 caractères.</span
+    >
+  </div>
+
+  <button type="submit">Envoyer</button>
+</form>

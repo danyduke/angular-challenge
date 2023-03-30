@@ -12,9 +12,10 @@ import { ROUTES } from './app.routes';
 import { MenuComponent } from './menu/menu.component';
 import { SignupComponent } from './signup/signup.component';
 import { UserComponent } from './user/user.component';
+import { MyFormComponent } from './my-form/my-form.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     BlockComponent,
     UserProfileComponent,
@@ -22,7 +23,8 @@ import { UserComponent } from './user/user.component';
     MenuComponent,
     SignupComponent,
     UserComponent,
-  ],
+      MyFormComponent
+   ],
   imports: [BrowserModule, FormsModule, RouterModule.forRoot(ROUTES)],
   providers: [],
   bootstrap: [AppComponent],
